@@ -14,3 +14,161 @@
 <p><span style="font-size: 36pt;">Don't be afraid, because everyone is with you.（！网站还没做完呐！只不过分班太快了的说，等你上完课也许我就做完啦！~）</span></p>
 <p><span style="color: #95a5a6;">版本：1.0.2.0</span></p>
 <p><span style="color: #95a5a6;">&copy; 2022 高一二班, Inc.</span></p>
+<!-- 语言: Html、Css、Javascript -->
+
+<!-- 工具: HbuilderX -->
+
+<!-- 使用Ctrl+/ 可快速多行注释/取消注释 -->
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>轮播图测试</title>
+
+    <!-- 外部导入Css文件，链接式 -->
+
+    <link type="text/css" rel="stylesheet" href="css/slideShow.css"/>    
+
+    </head>
+
+     
+
+    <body>
+      <style>
+      /* 标签选择器 */
+
+p {
+
+    text-align: center;
+
+    font-size: 25px;
+
+    color: cadetblue;
+
+    font-family: fantasy;
+
+}
+
+/* id选择器 */
+
+#hr1 {
+
+    background-color: cadetblue;
+
+    height: 2px;
+
+    width: 75%;
+
+}
+
+/* 类选择器 */
+
+.imgbox {
+
+    border-top: 5px solid cadetblue;
+
+    /* 避免因窗口变化影响图片效果 */
+
+    width: 60%;
+
+    height: 40%;
+
+    margin: 0 auto;
+
+}
+
+.img {
+
+    width: 60%;
+
+    height: 40%;
+
+    margin: 0 auto;
+
+    display: none;
+
+}
+      </style>
+
+        <p>测试轮播图</p>
+
+        <hr id="hr1"/>
+
+        <!-- 建立一个div控件作为图片框 -->
+
+        <div class="imgBox">
+
+            <!-- alt：图片路径失败时替换显示内容 -->
+
+            <img class="img-slide img" src="https://img9.vilipix.com/picture/pages/regular/2021/04/24/02/06/65089776_p0_master1200.jpg?x-oss-process=image/resize,m_fill,w_1000" alt="img1">
+
+            <img class="img-slide img" src="https://img9.vilipix.com/picture/pages/regular/2021/04/27/22/24/70937229_p0_master1200.jpg?x-oss-process=image/resize,m_fill,w_1000" alt="img2">
+
+            <img class="img-slide img" src="img/img3.jpg" alt="img3">
+
+            <img class="img-slide img" src="img/img4.jpg" alt="img4">
+
+            <img class="img-slide img" src="img/img5.jpg" alt="img5">
+
+        </div>
+
+    </body>
+
+     
+
+    <script type="text/javascript">
+
+        // index：索引， len：长度
+
+        var index = 0, len;
+
+        // 类似获取一个元素数组
+
+        var imgBox = document.getElementsByClassName("img-slide");
+
+        len = imgBox.length;
+
+        imgBox[index].style.display = 'block';
+
+        // 逻辑控制函数
+
+        function slideShow() {
+
+            index ++;
+
+            // 防止数组溢出
+
+            if(index >= len) index = 0;
+
+            // 遍历每一个元素
+
+            for(var i=0; i<len; i++) {
+
+                imgBox[i].style.display = 'none';
+
+            }
+
+            // 每次只有一张图片显示
+
+            imgBox[index].style.display = 'block';
+
+        }
+
+         
+
+        // 定时器，间隔3s切换图片
+
+        setInterval(slideShow, 3000);
+
+         
+
+    </script>
+
+     
+
+</html>
